@@ -2,7 +2,7 @@
 StudySync AI — A simple study planner and assistant web app that helps students organize their study schedules and track progress. It includes a basic AI chatbot powered by the Wikipedia API to answer simple academic questions. Built with Django and PostgreSQL, StudySync AI is designed to make studying a bit easier and more organized.
 
  
- ** Features **
+ **Features**
 
  1. User Authentication: Secure login, registration, and logout functionality.
 
@@ -19,17 +19,17 @@ StudySync AI — A simple study planner and assistant web app that helps student
  7. Platform Independant.
 
 
-** Technologies Used **
+**Technologies Used**
 
- Backend: Django
+    Backend: Django
 
- Frontend: HTML, CSS, JavaScript
+    Frontend: HTML, CSS, JavaScript
 
- Database: PostgreSQL / SQLite
+    Database: PostgreSQL / SQLite
 
- APIs: Wikipedia API, Quotes API
+    APIs: Wikipedia API, Quotes API
 
- Tools: Git, GitHub, Virtualenv
+    Tools: Git, GitHub, Virtualenv
 
 
 **Getting Started**
