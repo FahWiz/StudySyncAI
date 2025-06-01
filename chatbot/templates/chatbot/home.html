@@ -1,0 +1,206 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Home</title>
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;500;600;700&family=Roboto:wght@400;500&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="{% static 'chatbot/home_style.css' %}">
+</head>
+<body>
+    <nav class="navbar">
+        <h2>StudySync AI</h2>
+        <ul>
+          <li><a href="#" >Home</a></li>
+          <li><a href="#about" >About us</a></li>
+          <li><a href="#contact" >Contact</a></li>
+          <li><a href="{% url 'auth_page' %}"><button class="loginSignup-btn">Login/SignUp</button></a></li>
+
+        </ul>
+      </nav>
+
+
+      <div class="hero-section">
+        <img src="{% static 'chatbot/images/scholar.png' %}" alt="Hero Image" class="hero-image">
+        <div class="hero-text">
+            <h1>Welcome to StudySync AI</h1>
+            <p>Your smart assistant for efficient learning</p>
+            <button class="getStarted-btn"> Get Started</button>
+        </div>
+    </div>
+
+
+
+
+
+    <section class="features">
+        <div class="feature">
+            <img src="{% static 'chatbot/Images/smartStudyicon.png' %}" alt="Smarter Studying">
+            <h3>Smarter studying.</h3>
+            <p>Work smarter, not harder. Our innovative productivity tools help you stay on track, ensuring that you are working at maximum efficiency for maximum results.</p>
+            <a href="#"><u>Learn More</u></a>
+        </div>
+    
+        <div class="feature">
+            <img src="{% static 'chatbot/Images/Scheduleicon.png' %}" alt="Better Organization">
+            <h3>Better organization.</h3>
+            <p>StudySyncAI seamlessly manages your classes, exams, term dates, and co-curricular activities – because school schedules need more than just a calendar.</p>
+            <a href="#"><u>Learn More</u></a>
+        </div>
+    
+        <div class="feature">
+            <img src="{% static 'chatbot/Images/bulbicon.png' %}" alt="Enhanced Productivity">
+            <h3>Enhanced productivity.</h3>
+            <p>AI? Your personal academic assistant. Let us handle the hard work, keeping you on track for success.</p>
+            <a href="#"><u>Learn More</u></a>
+        </div>
+    </section>
+
+
+    <section id="about" class="about-section">
+        <div class="about-container">
+            <div class="about-text">
+                <h2>About StudySync AI</h2>
+                <p>
+                    StudySync AI is your intelligent academic companion, designed to help students manage their studies effectively.  
+                    Our AI-powered platform offers smart planning tools, automated reminders, and a personalized study assistant to  
+                    ensure that no task or deadline is missed.
+                </p>
+                <p>
+                    With StudySync AI, you can organize your assignments, exams, and schedules seamlessly. The AI-driven insights  
+                    provide customized study strategies, helping you optimize your learning process and achieve better results.
+                </p>
+                <p>
+                    We believe in making education more accessible, productive, and stress-free. Whether you're a student juggling  
+                    multiple subjects or a professional upskilling, StudySync AI is here to guide you every step of the way.
+                </p>
+                <p>
+                    Join thousands of students worldwide who are boosting their efficiency with StudySync AI. Together, let's  
+                    transform the way we learn and achieve academic excellence!
+                </p>
+            </div>
+            <div class="about-image">
+                <img src="{% static 'chatbot/Images/StudyGirl.png' %}" alt="StudySync AI">
+            </div>
+        </div>
+    </section>
+<!-- Contact Us Section -->
+<section id="contact" class="content-section">
+    <h2>Contact Us</h2>
+    <p>Have questions or need support? Reach out to us!</p>
+    <ul>
+        <li>Email: <a href="mailto:support@studysyncai.com">support@studysyncai.com</a></li>
+        <li>Phone: +1 234 567 890</li>
+        <li>Address: 123 Gandhi Nagar, Pune, Maharashtra, India.</li>
+        <li>Social Media: 
+            <a href="#">Facebook</a> | 
+            <a href="#">Twitter</a> | 
+            <a href="#">Instagram</a> | 
+            <a href="#">LinkedIn</a>
+        </li>
+    </ul>
+</section>
+
+<!-- Privacy Policy Section -->
+<section id="privacy" class="content-section">
+    <h2>Privacy Policy</h2>
+    <p>
+        At StudySync AI, we prioritize your privacy. This policy outlines how we collect, use, and protect 
+        your personal information when using our platform.
+    </p>
+    <h3>Information We Collect</h3>
+    <p>
+        We collect personal details such as name, email, and study preferences to enhance your experience. 
+        We do not share your information with third parties without your consent.
+    </p>
+    <h3>How We Use Your Information</h3>
+    <p>
+        Your data helps us provide personalized recommendations, improve AI predictions, and ensure a 
+        seamless study experience.
+    </p>
+    <h3>Data Protection</h3>
+    <p>
+        We implement strong security measures to protect your data from unauthorized access.
+    </p>
+</section>
+
+<!-- Terms & Conditions Section -->
+<section id="terms" class="content-section">
+    <h2>Terms & Conditions</h2>
+    <p>
+        By using StudySync AI, you agree to the following terms:
+    </p>
+    <h3>1. Use of Services</h3>
+    <p>
+        Our platform is designed for educational purposes. Any misuse of the services may result in 
+        termination of your account.
+    </p>
+    <h3>2. Intellectual Property</h3>
+    <p>
+        All content, including AI-generated recommendations, remains the intellectual property of 
+        StudySync AI and may not be reproduced without permission.
+    </p>
+    <h3>3. Limitation of Liability</h3>
+    <p>
+        StudySync AI is not responsible for any academic performance issues arising from the use 
+        of our services. Users are responsible for their own learning outcomes.
+    </p>
+</section>
+
+    
+    
+    <section class="study-life-text">
+        <p>Manage your study life and start each day with the confidence that nothing important will be forgotten, so that you can stay focused and get more done.</p>
+    </section>
+    
+    <section class="quote-section">
+        <span class="quote-symbol">&#x2E42;
+        <p class="quote-text">"AI has the potential to revolutionize the way we learn, bringing textbooks and historical sites to life right before our eyes."</p>
+    </section>
+    
+    <footer class="footer">
+        <div class="social-icons">
+            <a href="#"><i class="fab fa-facebook"></i></a>
+            <a href="#"><i class="fab fa-twitter"></i></a>
+            <a href="#"><i class="fab fa-instagram"></i></a>
+            <a href="#"><i class="fab fa-youtube"></i></a>
+            <a href="#"><i class="fab fa-linkedin"></i></a>
+        </div>
+    
+        <div class="footer-links">
+            <a href="#contact"><i class="fas fa-paper-plane"></i> Contact us</a>
+            <a href="#privacy"><i class="fas fa-shield-alt"></i> Privacy</a>
+            <a href="#terms"><i class="fas fa-file-alt"></i> T&Cs</a>
+            <a href="#about"><i class="fas fa-info-circle"></i> About</a>
+
+        </div>
+    
+        <div class="footer-bottom">
+            <p>StudySyncAI © 2025 | All Rights Reserved</p>
+        </div>
+    
+        <button class="scroll-top-btn" onclick="scrollToTop()">&#9650;</button>
+    </footer>
+    
+    <script>
+        window.addEventListener("scroll", function () {
+            const scrollBtn = document.querySelector(".scroll-top-btn");
+            if (window.scrollY > 300) {
+                scrollBtn.style.display = "block";
+            } else {
+                scrollBtn.style.display = "none";
+            }
+        });
+    
+        function scrollToTop() {
+            window.scrollTo({ top: 0, behavior: "smooth" });
+        }
+
+
+
+        
+    </script>
+   
+</body>
+</html>

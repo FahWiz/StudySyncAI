@@ -1,0 +1,61 @@
+
+{% load static%}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Profile | StudySync AI</title>
+    <link rel="stylesheet" href="{% static 'chatbot/profile.css' %}">
+</head>
+<body>
+    <div>
+    <nav class="navbar">
+        <h2>StudySync AI</h2>
+        <ul>
+            <li><a href="#">Profile</a></li>
+            <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+            <li><a href="{% url 'scheduler' %}">Planner</a></li>
+            <li><a href="{% url 'assistant_page' %}">AI Assistant</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+</div>
+    <div class="profile-card">
+        <div class="profile-left">
+            <div class="profile-header">User Profile</div>
+            <h2>{{ user.first_name }} {{ user.last_name }}</h2>
+            <p>Student | AI Enthusiast</p>
+        </div>
+
+        <div class="profile-right">
+            <div class="info-section">
+                <h3>📧 Email</h3>
+                <p>{{ user.email }}</p>
+            </div>
+            <div class="info-section">
+                <h3>📚 Subjects Covered</h3>
+                <p>{{ subjects }}</p>
+            </div>
+            <div class="info-section">
+                <h3>📅 Next Study Session</h3>
+                <p><strong>{{ next_session }}</strong></p>
+            </div>
+            <div class="info-section">
+                <h3>✅ Task Progress</h3>
+                <p>Completed: {{ completed_tasks }} | Remaining: {{ remaining_tasks }}</p>
+               <!-- <div class="progress-bar">
+                    <div class="progress" style="width: {{ progress_percentage }}%;"></div>
+                </div>
+            -->
+            </div>
+        </div>
+    </div>
+
+</body>
+</html>

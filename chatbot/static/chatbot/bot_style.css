@@ -1,0 +1,268 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: rgba(13, 72, 140, 0.9); /* Glassmorphism effect */
+    color: white;
+    padding: 15px 25px;
+    z-index: 1000;
+    backdrop-filter: blur(10px); /* Frosted effect */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    transition: all 0.3s ease-in-out;
+    height: 60px; /* Ensure uniform height */
+}
+
+/* Navbar Heading */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    margin: 0; /* Remove extra spacing */
+    line-height: 1; /* Ensure alignment */
+    cursor: pointer;
+    transition: transform 0.3s, text-shadow 0.3s;
+}
+
+.navbar h2:hover {
+    transform: scale(1.1);
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8);
+}
+
+/* Navbar Links */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    align-items: center; /* Ensures vertical alignment */
+    gap: 20px;
+    margin: 0;
+    padding: 0;
+}
+
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    padding: 10px 15px;
+    border-radius: 8px;
+    transition: all 0.3s ease-in-out;
+    display: flex; /* Ensures all links behave the same */
+    align-items: center;
+}
+
+.navbar a:hover {
+    background: rgba(255, 255, 255, 0.2);
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Logout Button */
+.logout-btn {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s;
+    display: flex;
+    align-items: center; /* Ensures alignment */
+}
+
+.logout-btn:hover {
+    background: #a72622;
+    transform: scale(1.1);
+}
+
+/* Logout Button */
+.logout-btn {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 8px;
+    font-weight: bold;
+    cursor: pointer;
+    border: none;
+    transition: all 0.3s ease-in-out;
+}
+
+.logout-btn:hover {
+    background: #a72622;
+    transform: scale(1.1);
+}
+
+/* Body Styling */
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #f0f2f5;
+    height: 100vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 20px;
+}
+
+/* Chat Container */
+.chat-container {
+    margin-top: 100px;
+    width: 60vw;
+    height: calc(100vh - 120px);
+    background: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 15px;
+    padding: 20px;
+    overflow: hidden;
+}
+
+/* Chatbox */
+.chatbox {
+    flex-grow: 1;
+    padding: 15px;
+    overflow-y: auto;
+    display: flex;
+    flex-direction: column;
+    gap: 10px;
+    max-height: 70vh;
+}
+
+/* Custom Scrollbar */
+.chatbox::-webkit-scrollbar {
+    width: 8px;
+}
+
+.chatbox::-webkit-scrollbar-thumb {
+    background-color: rgba(0, 0, 0, 0.3);
+    border-radius: 5px;
+}
+
+/* Chat Bubbles */
+.chatbox p {
+    max-width: 80%;
+    padding: 12px;
+    border-radius: 12px;
+    margin: 5px;
+    font-size: 16px;
+    word-wrap: break-word;
+    animation: fadeIn 0.3s ease-in-out;
+    line-height: 1.4;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+/* User Message */
+.chatbox p.user {
+    align-self: flex-end;
+    background: #007bff;
+    color: white;
+    border-bottom-right-radius: 5px;
+}
+
+/* Bot Message */
+.chatbox p.bot {
+    align-self: flex-start;
+    background: #e1e1e1;
+    color: black;
+    border-bottom-left-radius: 5px;
+}
+
+/* Input Box */
+.input-container {
+    display: flex;
+    border-top: 1px solid #ccc;
+    padding: 10px;
+    background: white;
+    width: 100%;
+}
+
+input {
+    flex: 1;
+    padding: 12px;
+    border: 1px solid #ccc;
+    border-radius: 20px;
+    outline: none;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+input:focus {
+    border-color: #007bff;
+    box-shadow: 0 0 8px rgba(0, 123, 255, 0.5);
+}
+
+button {
+    background: #007bff;
+    color: white;
+    border: none;
+    padding: 12px 20px;
+    margin-left: 5px;
+    border-radius: 20px;
+    cursor: pointer;
+    font-size: 16px;
+    transition: all 0.3s ease-in-out;
+}
+
+button:hover {
+    background: #0056b3;
+}
+
+/* Fade-in Animation */
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+        transform: translateY(10px);
+    }
+    to {
+        opacity: 1;
+        transform: translateY(0);
+    }
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+        gap: 10px;
+    }
+
+    .chat-container {
+        width: 85vw;
+        height: calc(100vh - 150px);
+    }
+
+    .chatbox {
+        max-height: 60vh;
+    }
+
+    input {
+        font-size: 14px;
+        padding: 10px;
+    }
+
+    button {
+        font-size: 14px;
+        padding: 10px 15px;
+    }
+}

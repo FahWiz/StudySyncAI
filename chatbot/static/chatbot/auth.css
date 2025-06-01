@@ -1,0 +1,108 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background: linear-gradient(135deg, #4A90E2, #0d2f55);
+}
+
+.container {
+    width: 420px; /* Slightly increased width */
+    padding: 50px; /* More padding for a taller, balanced design */
+    background: white;
+    border-radius: 12px;
+    box-shadow: 0px 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    transition: transform 0.3s ease-in-out;
+}
+
+.container:hover {
+    transform: translateY(-3px);
+}
+
+h2 {
+    margin-bottom: 25px;
+    color: #333;
+    font-size: 24px; /* Larger heading */
+}
+
+input {
+    width: 100%;
+    padding: 14px; /* Increased padding */
+    margin: 15px 0;
+    border: 1px solid #ccc;
+    border-radius: 8px; /* Softer, rounded edges */
+    transition: 0.3s ease-in-out;
+    outline: none;
+    font-size: 18px; /* Bigger text for better readability */
+}
+
+input:focus {
+    border-color: #4A90E2;
+    box-shadow: 0px 0px 10px rgba(74, 144, 226, 0.3);
+}
+
+.password-container {
+    position: relative;
+}
+
+.toggle-password {
+    position: absolute;
+    right: 15px;
+    top: 50%;
+    transform: translateY(-50%);
+    cursor: pointer;
+    font-size: 18px; /* Bigger icon */
+    color: #4A90E2;
+    transition: 0.3s ease;
+}
+
+.toggle-password:hover {
+    color: #0d2f55;
+}
+
+button {
+    width: 100%;
+    padding: 16px; /* Bigger button */
+    background: linear-gradient(135deg, #0d2f55, #15457b);
+    color: white;
+    border: none;
+    font-weight: bold;
+    border-radius: 8px;
+    cursor: pointer;
+    margin-top: 25px;
+    font-size: 18px; /* Bigger text */
+    transition: transform 0.2s ease-in-out, box-shadow 0.2s ease-in-out;
+}
+
+button:hover {
+    background: #0b3b6a;
+    transform: scale(1.02);
+    box-shadow: 0px 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+p {
+    margin-top: 18px;
+    font-size: 16px; /* Bigger paragraph text */
+    color: #555;
+}
+
+a {
+    color: #4A90E2;
+    text-decoration: none;
+    font-weight: bold;
+    font-size: 16px; /* Increased link size */
+    transition: 0.3s ease-in-out;
+}
+
+a:hover {
+    color: #0d2f55;
+    text-decoration: underline;
+}

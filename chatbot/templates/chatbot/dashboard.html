@@ -1,0 +1,164 @@
+<!-- Dashboard Page -->
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'chatbot/dashboard.css' %}">
+    <title>Dashboard - StudySync AI</title>
+</head>
+<body>
+
+
+
+    <input type="hidden" id="csrf_token" value="{{ csrf_token }}">
+    <!-- Navigation Bar -->
+    <nav class="navbar">
+        <h2>StudySync AI</h2>
+        <ul>
+            <li><a href="{%url 'profile' %}">Profile</a></li>
+            <li><a href="{% url 'scheduler' %}">Planner</a></li>
+            <li><a href="{% url 'assistant_page' %}">AI Assistant</a></li>
+            <li>
+                <form action="{% url 'logout' %}" method="post">
+                    {% csrf_token %}
+                    <button type="submit" class="logout-btn">Logout</button>
+                </form>
+            </li>
+        </ul>
+    </nav>
+
+    <!-- Dashboard Section -->
+    <div class="dashboard-container">
+        <h1>Welcome, {{ user.username }}!</h1>
+    
+        <!-- Two column layout Summary -->
+        <div class="dashboard-grid">
+            <!--Left Column-->
+           <div class="left-column">
+            <div class="progress-container">
+                <h3>Study Plan Progress:</h3>
+                <div class="progress">
+                    <div id="progress-bar" class="progress-bar" role="progressbar" 
+                    style="width: {{ progress }}%;"
+                        aria-valuenow="{{ progress }}" 
+                        aria-valuemin="0" aria-valuemax="100">
+                        {{ progress|floatformat:0 }}%
+                    </div>
+                </div>
+            </div>
+            
+
+                <div class="card to-do-list">
+                    <h3>To-Do List</h3>
+                    <ul id="todo-items">
+                        <li>Sample Task <button onclick="removeTask(this)">❌</button></li>
+                    </ul>
+                    <input type="text" id="new-task" placeholder="Add a task...">
+                    <button onclick="addTask()">Add</button>
+                </div>
+            </div>
+
+            <!--Right Column-->
+
+            <div class="right-column">
+                <div class="card daily-quote">
+                    <h3>Daily Motivation</h3>
+                    <p id="quote-text">"Stay focused and never give up!"</p>
+                </div>
+
+                <div class="card pomodoro-timer">
+                    <h3>Pomodoro Timer</h3>
+                    <p id="timer">25:00</p>
+                    <button onclick="startTimer()">Start</button>
+                    <button onclick="pauseTimer()">Pause</button>
+                    <button onclick="resetTimer()">Reset</button>
+                </div>
+             </div>
+    </div>
+        <!-- Study Plans Section -->
+        <div class="study-plans">
+            <!-- Tab Buttons -->
+                <button onclick="showTab('incomplete-plans')">Incomplete Plans</button>
+                <button onclick="showTab('completed-plans')">Completed Plans</button>
+    
+            <!-- Incomplete Study Plans -->
+            <div id="incomplete-plans" class="tab-content active">
+                <h2>Incomplete Study Plans</h2>
+                {% for plan in incomplete_plans %}
+                    <div class="plan-container">
+                        <button class="dropdown-btn" onclick="toggleTable('incomplete-table-{{ plan.id }}', this)">
+                            <span class="toggle-icon">+</span> {{ plan.title }}
+                        </button>
+                        <div id="incomplete-table-{{ plan.id }}" class="plan-table">
+                            <table border="1">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Topic</th>
+                                    <th>Duration</th>
+                                    <th>Action</th>
+                                </tr>
+                                {% for detail in plan.details.all %}
+                                    <tr>
+                                        <td>{{ detail.date }}</td>
+                                        <td>{{ detail.subject }}</td>
+                                        <td>{{ detail.topic }}</td>
+                                        <td>{{ detail.duration }} hours</td>
+                                        <td>
+                                            {% if detail.is_completed %}
+                                                <span class="completed">✔ Completed</span>
+                                            {% else %}
+                                                <button class="mark-complete-btn" onclick="markAsComplete('{{ detail.id }}')">
+                                                    Mark as Complete
+                                                </button>
+                                            {% endif %}
+                                        </td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No incomplete plans available.</p>
+                {% endfor %}
+            </div>
+    
+            <!-- Completed Study Plans -->
+            <div id="completed-plans" class="tab-content">
+                <h2>Completed Study Plans</h2>
+                {% for plan in completed_plans %}
+                    <div class="plan-container">
+                        <button class="dropdown-btn" onclick="toggleTable('completed-table-{{ plan.id }}', this)">
+                            <span class="toggle-icon">+</span> {{ plan.title }}
+                        </button>
+                        <div id="completed-table-{{ plan.id }}" class="plan-table">
+                            <table border="1">
+                                <tr>
+                                    <th>Date</th>
+                                    <th>Subject</th>
+                                    <th>Topic</th>
+                                    <th>Duration</th>
+                                </tr>
+                                {% for detail in plan.details.all %}
+                                    <tr>
+                                        <td>{{ detail.date }}</td>
+                                        <td>{{ detail.subject }}</td>
+                                        <td>{{ detail.topic }}</td>
+                                        <td>{{ detail.duration }} hours</td>
+                                    </tr>
+                                {% endfor %}
+                            </table>
+                        </div>
+                    </div>
+                {% empty %}
+                    <p>No completed plans available.</p>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <script src="{% static 'chatbot/dashboard.js' %}"></script>
+</body>
+</html>

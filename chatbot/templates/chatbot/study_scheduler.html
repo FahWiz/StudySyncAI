@@ -1,0 +1,67 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" type="text/css" href="{% static 'chatbot/scheduler.css' %}">
+    <meta name="csrf-token" content="{{ csrf_token }}">
+
+    <title>Study Scheduler </title>
+</head>
+<body>
+  <!-- Navigation Bar -->
+  <nav class="navbar">
+    <h2>StudySync AI</h2>
+    <ul>
+        <li><a href="{% url 'profile' %}">Profile</a></li>
+        <li><a href="{% url 'scheduler' %}">Planner</a></li>
+        <li><a href="{% url 'dashboard' %}">Dashboard</a></li>
+        <li>
+            <form action="{% url 'logout' %}" method="post">
+                {% csrf_token %}
+                <button type="submit" class="logout-btn">Logout</button>
+            </form>
+        </li>
+    </ul>
+</nav>
+    <h2>Study Schedule Planner</h2>
+
+    <!-- Study Plan Form -->
+    <form id="studyForm" onsubmit="return false;">
+        Title: <input type="text" id="name" placeholder="Title for the plan: ">
+        Study Hours Per Day: <input type="number" id="study_hours" min="1" max="12" required>
+        Preferred Study Time:
+        <select id="study_time">
+            <option value="Morning">Morning</option>
+            <option value="Afternoon">Afternoon</option>
+            <option value="Evening">Evening</option>
+            <option value="Night">Night</option>
+        </select>
+        Break Time (in minutes): <input type="number" id="break_time" min="0" max="30" >
+        Deadline (No. of Days): <input type="number" id="no_of_days" min="1" required>
+
+
+        <h3>Subjects</h3>
+        <div id="subjectsContainer"></div>
+        <button type="button" onclick="addSubject()">+ Add Subject</button>
+        <button id="generatePlanBtn">Generate Study Plan</button>
+        
+    </form>
+
+    <!-- Study Plan Output Table -->
+    <h3>Generated Study Plan</h3>
+    <table id="studySchedule">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Subject</th>
+                <th>Time</th>
+                <th>Duration</th>
+            </tr>
+        </thead>
+        <tbody></tbody>
+    </table>
+    <script src="{% static 'chatbot/scheduler.js' %}"></script>
+</body>
+</html>

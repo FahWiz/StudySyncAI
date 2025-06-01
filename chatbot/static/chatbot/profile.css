@@ -1,0 +1,264 @@
+/* General Reset */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', sans-serif;
+}
+
+/* Navbar */
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #0d488c;
+    color: white;
+    padding: 15px 20px;
+    width: 100%;
+    position:fixed;
+    top:0;
+    left:0;
+    z-index:1000;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+    box-sizing: border-box; /* Ensures padding doesn’t overflow */
+    overflow: hidden;
+}
+
+
+/* Navbar List */
+.navbar ul {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+    align-items: center;
+    margin: 0;
+    padding: 0;
+    flex-grow: 1; /* Ensures items take up available space */
+    justify-content: flex-end; /* Pushes items to the right */
+}
+
+/* Navbar Links */
+.navbar a {
+    text-decoration: none;
+    color: white;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+    padding: 10px 15px;
+    white-space: nowrap; /* Prevents breaking */
+    border-radius: 5px;
+}
+.navbar a:hover {
+    color: #ffffff;
+    background: rgba(255, 255, 255, 0.1);
+    text-decoration: none;
+    transform: translateY(-2px);
+    box-shadow: 0px 3px 10px rgba(0, 0, 0, 0.2);
+}
+/* StudySync AI Heading */
+.navbar h2 {
+    font-size: 24px;
+    font-weight: bold;
+    color: white;
+    transition: transform 0.3s ease-in-out, color 0.3s, text-shadow 0.3s;
+    cursor: pointer;
+}
+
+/* Hover Animation */
+.navbar h2:hover {
+    transform: scale(1.1); /* Slight zoom and tilt effect */
+    color: #ffffff; /* Gold color on hover */
+    text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(91, 91, 88, 0.5);
+}
+
+
+
+
+
+/* Logout Button */
+.logout-btn {
+    background: #d9534f;
+    color: white;
+    padding: 10px 15px;
+    border-radius: 5px;
+    border: none;
+    font-weight: bold;
+    cursor: pointer;
+    transition: transform 0.2s ease-in-out, background 0.3s;
+}
+
+/* Zoom-in Effect on Hover */
+.logout-btn:hover {
+    background: #a72622;
+    transform: scale(1.1); /* Increases size by 10% */
+}
+
+
+/* Responsive Fix */
+@media screen and (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        align-items: center;
+        padding: 10px;
+    }
+
+    .navbar ul {
+        flex-direction: column;
+        align-items: center;
+        width: 100%;
+    }
+
+    .logout-btn {
+        width: 100%;
+        text-align: center;
+        margin-top: 5px;
+    }
+}
+
+
+body {
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    background: #f0f2f5;
+    padding: 80px;
+}
+
+/* Profile Card - Full Page */
+.profile-card {
+    display: flex;
+    width: 85vw;
+    height: 80vh;
+    background: white;
+    border-radius: 15px;
+    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+    transition: transform 0.3s ease-in-out;
+}
+
+.profile-card:hover {
+    transform: scale(1.02);
+}
+
+/* Left Section - Stylish Gradient */
+.profile-left {
+    width: 35%;
+    background: linear-gradient(135deg, #165aa8, #0d2f55);
+    text-align: center;
+    padding: 50px;
+    color: white;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+/* Adding a Subtle Glow Effect */
+.profile-left::after {
+    content: "";
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: radial-gradient(circle, rgba(255, 255, 255, 0.1) 20%, transparent 60%);
+    top: 0;
+    left: 0;
+    opacity: 0.3;
+}
+
+/* Profile Header */
+.profile-header {
+    background: white;
+    color: #0d2f55;
+    padding: 8px 18px;
+    border-radius: 15px;
+    font-weight: bold;
+    margin-bottom: 20px;
+    font-size: 18px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.2);
+}
+
+/* Right Section */
+.profile-right {
+    width: 65%;
+    padding: 60px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color:#ddd;
+}
+
+.info-section {
+    margin-bottom: 30px;
+}
+
+/* Headers */
+h3 {
+    font-size: 20px;
+    color: #444;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 5px;
+}
+
+p {
+    font-size: 22px;
+    font-weight: bold;
+    color: #222;
+}
+
+
+/* Progress Bar */
+.progress-bar {
+    width: 100%;
+    height: 12px;
+    background: #ddd;
+    border-radius: 6px;
+    overflow: hidden;
+    position: relative;
+    margin-top: 10px;
+}
+
+.progress {
+    height: 100%;
+    background: linear-gradient(90deg, #28a745, #0c9a32);
+    transition: width 0.5s ease-in-out;
+    border-radius: 6px;
+    box-shadow: 0px 3px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Hover Effect for Progress */
+.progress:hover {
+    background: linear-gradient(90deg, #1fc157, #0c9a32);
+}
+
+/* Responsive Design */
+@media (max-width: 900px) {
+    .profile-card {
+        flex-direction: column;
+        height: auto;
+    }
+
+    .profile-left {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .profile-right {
+        width: 100%;
+        padding: 40px;
+    }
+
+    .progress-bar {
+        height: 10px;
+    }
+
+    p {
+        font-size: 18px;
+    }
+
+    h3 {
+        font-size: 18px;
+    }
+}
