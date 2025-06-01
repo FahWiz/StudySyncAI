@@ -64,7 +64,6 @@
                 
                 input.value = "";
         
-                // Scroll to the bottom after adding a new task
                 let todoListContainer = document.querySelector(".to-do-list");
                 todoListContainer.scrollTop = todoListContainer.scrollHeight;
             }
@@ -76,8 +75,8 @@
         
     
 
-let time = 1500;  // 25 minutes in seconds
-let timer = null; // Declare globally
+let time = 1500; // 25 seconds
+let timer = null; 
 
 function startTimer() {
     if (!timer) {  // Prevent multiple intervals

@@ -13,7 +13,7 @@ from django.contrib import messages
 from django.contrib.auth.decorators import login_required
 
 
-# Initialize Wikipedia API
+# Initializing Wikipedia API
 wiki = wikipediaapi.Wikipedia(
     language='en',
     user_agent="StudySyncAI/1.0 (contact: shaikhfarheen101@gmail.com)"
@@ -32,7 +32,7 @@ thanks_responses=["Glad I could help!","You're welcome!",
 "That’s what I’m here for!",
 "You're welcome! Hope you found it useful."]
 
-# Extract keywords from question
+# Extracting keywords from question
 def extract_keywords(question):
     words = question.lower()
     words = re.sub(r"[^\w\s]", "", words)  # Remove punctuation
@@ -48,18 +48,13 @@ def get_wikipedia_summary(query):
 
 
 def assistant_page(request):
-    return render(request, 'chatbot/assistant.html')  # Ensure this template exists
+    return render(request, 'chatbot/assistant.html')  
 
 
-
-# Chatbot API
-#from django.views.decorators.csrf import csrf_protect
-
-#@csrf_protect
 @api_view(['POST'])
 def chatbot_api(request):
 
-    user_input = request.data.get("query", "").strip().lower()  # Convert input to lowercase
+    user_input = request.data.get("query", "").strip().lower()  
 
     if not user_input:
         return Response({"error": "Empty query received"}, status=400)
@@ -165,13 +160,13 @@ def profile_view(request):
 
 from django.contrib.auth import get_user_model
 
-User = get_user_model()  # Get the correct user model dynamically
+User = get_user_model()
 
 from django.contrib.auth import get_user_model, login
 from django.contrib import messages
 from django.shortcuts import render, redirect
 
-CustomUser = get_user_model()  # Ensure you're using the custom user model
+CustomUser = get_user_model()  
 
 def register_user(request):
     if request.method == "POST":
@@ -211,12 +206,11 @@ def register_user(request):
 # Login View
 from django.contrib.auth import authenticate, login, get_user_model
 
-User = get_user_model()  # Get the correct user model dynamically
-
+User = get_user_model() 
 from django.contrib.auth import authenticate, login
 from django.contrib import messages
 from django.shortcuts import render, redirect
-from chatbot.models import CustomUser  # Ensure you import your custom user model
+from chatbot.models import CustomUser  
 
 from django.shortcuts import render, redirect
 from django.contrib.auth import authenticate, login
@@ -250,7 +244,6 @@ from .models import StudyPlan, StudyPlanDetail
 from datetime import datetime
 from django.views.decorators.csrf import csrf_exempt
 
- # Remove this if you're handling CSRF properly with tokens
 def save_study_plan(request):
     if request.method == "POST":
         if not request.user.is_authenticated:
@@ -263,7 +256,6 @@ def save_study_plan(request):
         if not study_plan_data:
             return JsonResponse({"error": "No study plan data received"}, status=400)
 
-        # Extract general study plan details (using the first entry)
         first_entry = study_plan_data[0]
         preferred_time = first_entry["time"]
 

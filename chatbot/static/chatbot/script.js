@@ -23,7 +23,7 @@ function sendMessage() {
         method: "POST",
         headers: { 
             "Content-Type": "application/json",
-            "X-CSRFToken": getCSRFToken()  // Include CSRF token
+            "X-CSRFToken": getCSRFToken()  
         },
         body: JSON.stringify({ query: userInput })  
     })

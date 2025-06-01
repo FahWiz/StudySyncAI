@@ -14,7 +14,7 @@ body {
     color: white;
     padding: 15px 20px;
     width: 100%;
-    box-sizing: border-box; /* Ensures padding doesn’t overflow */
+    box-sizing: border-box; 
     overflow: hidden;
 }
 
@@ -27,8 +27,8 @@ body {
     align-items: center;
     margin: 0;
     padding: 0;
-    flex-grow: 1; /* Ensures items take up available space */
-    justify-content: flex-end; /* Pushes items to the right */
+    flex-grow: 1; 
+    justify-content: flex-end; 
 }
 
 /* Navbar Links */
@@ -38,7 +38,7 @@ body {
     font-weight: bold;
     transition: 0.3s ease-in-out;
     padding: 10px 15px;
-    white-space: nowrap; /* Prevents breaking */
+    white-space: nowrap;
     border-radius: 5px;
 }
 .navbar a:hover {
@@ -59,8 +59,8 @@ body {
 
 /* Hover Animation */
 .navbar h2:hover {
-    transform: scale(1.1); /* Slight zoom and tilt effect */
-    color: #ffffff; /* Gold color on hover */
+    transform: scale(1.1); 
+    color: #ffffff;
     text-shadow: 0 0 10px rgba(255, 255, 255, 0.8), 0 0 20px rgba(91, 91, 88, 0.5);
 }
 
@@ -83,7 +83,7 @@ body {
 /* Zoom-in Effect on Hover */
 .logout-btn:hover {
     background: #a72622;
-    transform: scale(1.1); /* Increases size by 10% */
+    transform: scale(1.1); 
 }
 
 
